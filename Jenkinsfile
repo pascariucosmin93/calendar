@@ -19,7 +19,8 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
-                    dockerImage = docker.build("${registry}/${dockerImage}:2")
+                    // Construiește imaginea Docker folosind versiunea dinamică
+                    dockerImage = docker.build("${registry}/${dockerImage}:latest")
                 }
             }
         }
@@ -28,6 +29,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://' + registry, dockerCredentials) {
+                        // Pune imaginea în registrul Docker
                         dockerImage.push()
                     }
                 }
@@ -37,7 +39,7 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 script {
-                    // Definiți comanda kubectl pentru a implementa resursele Kubernetes din fișierul myweb.yaml
+                    // Definiți comanda kubectl pentru a implementa resursele Kubernetes din fișierul calendar.yaml
                     def deployCommand = "kubectl apply -f calendar.yaml"
                     
                     // Executați comanda utilizând sh

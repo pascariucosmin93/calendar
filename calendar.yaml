@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: calendar-2
-        image: registry.cosmin-lab.cloud:5000/calendar:2
+        image: registry.cosmin-lab.cloud:5000/calendar:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
