@@ -6,7 +6,7 @@ EXPOSE 80
 
 # Copiem fișierele HTML și CSS în directorul de lucru al serverului web Nginx
 COPY index.html /usr/share/nginx/html/
-COPY style.css /usr/share/nginx/html/
+COPY calendar.css /usr/share/nginx/html/
 COPY calendar.js /usr/share/nginx/html/
 COPY jquery-1.2.4.js /usr/share/nginx/html/
 
