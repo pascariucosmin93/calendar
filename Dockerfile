@@ -8,6 +8,7 @@ EXPOSE 80
 COPY index.html /usr/share/nginx/html/
 COPY style.css /usr/share/nginx/html/
 COPY calendar.js /usr/share/nginx/html/
+COPY jquery-1.2.4.js /usr/share/nginx/html/
 
 
 # Încheiem cu comanda pentru a porni serverul Nginx atunci când containerul este lansat
