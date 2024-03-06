@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: calendar
+  name: calendar-2
   labels:
-    app: calendar
+    app: calendar-2
   namespace: jenkins
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: calendar
+      app: calendar-2
   template:
     metadata:
       labels:
-        app: calendar
+        app: calendar-2
     spec:
       containers:
-      - name: calendar
-        image: registry.cosmin-lab.cloud:5000/calendar:1
+      - name: calendar-2
+        image: registry.cosmin-lab.cloud:5000/calendar:2
         imagePullPolicy: Always
         ports:
         - containerPort: 80
@@ -32,13 +32,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: calendar
+  name: calendar-2
   namespace: jenkins  # Specificăm spațiul de nume aici
   labels:
-    app: calendar  # Modificat aici pentru a se potrivi cu etichetele din deployment
+    app: calendar-2 # Modificat aici pentru a se potrivi cu etichetele din deployment
 spec:
   selector:
-    app: calendar
+    app: calendar-2
   ports:
   - name: http
     port: 80
